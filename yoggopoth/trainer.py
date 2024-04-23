@@ -137,6 +137,7 @@ class Generator:
     def generate(self, idx=None, max_new_tokens=100):
         if idx is None:
             idx = torch.zeros((1, 1), dtype=torch.long)
+        idx = idx.to(torch_device)
         return self.decoder(
             self.model.generate(idx, max_new_tokens=max_new_tokens)[0].tolist()
         )
@@ -144,5 +145,6 @@ class Generator:
     def stream_generate(self, idx=None, max_new_tokens=100):
         if idx is None:
             idx = torch.zeros((1, 1), dtype=torch.long)
+        idx = idx.to(torch_device)
         for i in self.model.stream_generate(idx, max_new_tokens=max_new_tokens):
             yield self.decoder(i[0].tolist())

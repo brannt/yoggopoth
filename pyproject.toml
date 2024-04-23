@@ -2,9 +2,21 @@
 name = "yoggopoth"
 description = "YogGoPoTh: learning Transformers with the Cthulhu Mythos!"
 version = "0.0.1"
-requires-python = ">= 3.11"
+requires-python = ">= 3.10"
+authors = [{ name = "Artem Gorokhov", email = "branntart@gmail.com" }]
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/brannt/yoggopoth"
+Issues = "https://github.com/brannt/yoggopoth/issues"
 dependencies = [
-    "torch ~=2.2.2",
+    "torch ~=2.2.0",
     "fire ~=0.6.0",
     "pydantic-settings ~=2.2.1",
     "numpy ~=1.26.4",
@@ -16,3 +28,6 @@ dev = ["ruff"]
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+exclude = ["local_data"]
